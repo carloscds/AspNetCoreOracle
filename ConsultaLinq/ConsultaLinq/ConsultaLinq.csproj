@@ -45,6 +45,7 @@
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Pedido.cs" />
+    <Compile Include="Models\PedidoItem.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

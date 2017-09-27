@@ -9,6 +9,10 @@ namespace ConsultaLinq.Models
         public DateTime Data { get; set; }
         public Cliente Cliente { get; set; }
         public decimal Valor { get; set; }
-        public virtual ICollection<Produto> Produto { get; set; }
+        public virtual ICollection<PedidoItem> PedidoItem { get; set; }
+        public Pedido()
+        {
+            PedidoItem = new List<PedidoItem>();
+        }
     }
 }

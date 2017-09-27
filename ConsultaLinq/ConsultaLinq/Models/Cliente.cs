@@ -12,5 +12,9 @@ namespace ConsultaLinq.Models
         public string Nome { get; set; }
         public Cidade Cidade { get; set; }
         public virtual ICollection<Pedido> Pedido { get; set; }
+        public Cliente()
+        {
+            Pedido = new List<Pedido>();
+        }
      }
 }

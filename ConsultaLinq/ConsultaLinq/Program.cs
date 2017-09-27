@@ -57,10 +57,20 @@ namespace ConsultaLinq
                 PedidoID = 1,
                 Data = DateTime.Now,
                 Cliente = clientes[0],
-                Produto = new List<Produto>()
+                PedidoItem = new List<PedidoItem>()
                 {
-                    produtos[0],
-                    produtos[1]
+                    new PedidoItem() {
+                        PedidoID = 1,
+                        Produto = produtos[0],
+                        Quantidade = 10,
+                        Valor = 5
+                    },
+                    new PedidoItem() {
+                        PedidoID = 1,
+                        Produto = produtos[1],
+                        Quantidade = 2,
+                        Valor = 7
+                    },
                 }
             });
 
@@ -69,11 +79,39 @@ namespace ConsultaLinq
                 PedidoID = 2,
                 Data = DateTime.Now.AddDays(-5),
                 Cliente = clientes[1],
-                Produto = new List<Produto>()
+
+                PedidoItem = new List<PedidoItem>()
                 {
-                    produtos[1]
+                    new PedidoItem() {
+                        PedidoID = 1,
+                        Produto = produtos[1],
+                        Quantidade = 10,
+                        Valor = 5
+                    }
                 }
             });
+
+            produtos[0].Pedido.Add(pedidos[0]);
+            produtos[1].Pedido.Add(pedidos[0]);
+            produtos[1].Pedido.Add(pedidos[1]);
+
+            foreach(var p in pedidos)
+            {
+                Console.WriteLine("------------------");
+                Console.WriteLine($"  Pedido: {p.PedidoID}");
+                Console.WriteLine($" Cliente: {p.Cliente.Nome}");
+                Console.WriteLine($"  Cidade: {p.Cliente.Cidade.Nome}");
+                Console.WriteLine($"Produtos:");
+                var total = 0M;
+                foreach(var pro in p.PedidoItem)
+                {
+                    Console.WriteLine($"\t{pro.Produto.Nome}\t{pro.Quantidade}\t{pro.Valor}");
+                    total += (pro.Quantidade * pro.Valor);
+                }
+                Console.WriteLine($"Total Pedido: {total.ToString("C")}");
+            }
+
+
 
 
         }

@@ -8,6 +8,9 @@ namespace ConsultaLinq.Models
         public string Nome { get; set; }
         public decimal Valor { get; set; }
         public virtual ICollection<Pedido> Pedido { get; set; }
-
+        public Produto()
+        {
+            Pedido = new List<Pedido>();
+        }
     }
 }

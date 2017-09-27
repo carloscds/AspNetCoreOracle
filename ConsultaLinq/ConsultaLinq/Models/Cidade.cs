@@ -9,5 +9,9 @@ namespace ConsultaLinq.Models
         public string UF { get; set; }
         public string CEP { get; set; }
         public virtual ICollection<Cliente> Cliente { get; set; }
+        public Cidade()
+        {
+            Cliente = new List<Cliente>();
+        }
     }
 }
