@@ -9,6 +9,10 @@ namespace ConsultaLinq
 {
     class Program
     {
+        /// <summary>
+        /// Exemplo Git
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             var cidades = new List<Cidade>();
