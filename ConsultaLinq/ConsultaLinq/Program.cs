@@ -116,6 +116,19 @@ namespace ConsultaLinq
             }
 
 
+            var cli2 = from c in clientes
+                       where c.Cidade.UF == "PR"
+                       orderby c.Nome
+                       select c;
+
+            var cli21 = clientes
+                .Where(c => c.Cidade.UF == "PR")
+                .OrderByDescending(o => o.Nome)
+                .Max(m => m.ClienteID);
+
+
+
+
 
 
         }
