@@ -7,13 +7,13 @@ namespace ExemploEF.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class criar_pedido : IMigrationMetadata
+    public sealed partial class CriacaoBanco : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(criar_pedido));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CriacaoBanco));
         
         string IMigrationMetadata.Id
         {
-            get { return "201709262110094_criar_pedido"; }
+            get { return "201709262325321_CriacaoBanco"; }
         }
         
         string IMigrationMetadata.Source
