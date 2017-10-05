@@ -1,0 +1,3 @@
+Driver Oracle:
+http://www.oracle.com/technetwork/topics/dotnet/whatsnew/vs2012welcome-1835382.html
+
