@@ -3,3 +3,9 @@ http://www.oracle.com/technetwork/topics/dotnet/whatsnew/vs2012welcome-1835382.h
 
 Compoentens e Relatórios:
 https://www.devexpress.com/
+
+Layout:
+https://ionicframework.com/getting-started/
+
+Treinamentos:
+https://mva.microsoft.com/
