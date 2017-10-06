@@ -49,6 +49,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,13 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto.cs" />
-    <Compile Include="Migrations\201709262325321_CriacaoBanco.cs" />
-    <Compile Include="Migrations\201709262325321_CriacaoBanco.Designer.cs">
-      <DependentUpon>201709262325321_CriacaoBanco.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Pedido.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,11 +69,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709262325321_CriacaoBanco.resx">
-      <DependentUpon>201709262325321_CriacaoBanco.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

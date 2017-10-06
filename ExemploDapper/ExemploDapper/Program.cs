@@ -14,27 +14,40 @@ namespace ExemploDapper
     {
         static void Main(string[] args)
         {
-            var conexao = new OracleConnection("data source=oracle; user id=system; password=cds123456;");
+            var conexao = new OracleConnection(
+                "data source=oracle; user id=system; password=cds123456;");
+
+            var param = new Dictionary<string, object>()
+            {
+                {":clienteid", 1}
+            };
+
+            var consulta = conexao.Query<Cliente>(
+                "select * from cliente where clienteid = :clienteid",
+                param);
 
             //conexao.Execute("insert into cliente(nome) values(:nome)", new { nome = "Carlos "+DateTime.Now.ToString() });
 
-            var cli = conexao.Query<Cliente, Pedido, Cliente>(@"select c.*, p.PedidoID, p.Data, p.Valor
-                                                               from cliente c
-                                                               left join pedido p on c.clienteid = p.clienteID",
-                                                               (c, p) =>
-                                                               {
-                                                                   if (p != null)
-                                                                   {
-                                                                       p.Cliente = c;
-                                                                       c.Pedido.Add(p);
-                                                                   }
-                                                                   return c;
-                                                               },
-                                                               splitOn: "PedidoID");
-            foreach(var d in cli)
-            {
-                Console.WriteLine($"{d.Nome} - {d.Pedido.Count} pedidos");
-            }
+            //var cli = conexao.Query<Cliente, Pedido, Cliente>(@"select c.*, p.PedidoID, p.Data, p.Valor
+            //                                                   from cliente c
+            //                                                   left join pedido p on c.clienteid = p.clienteID",
+            //                                                   (c, p) =>
+            //                                                   {
+            //                                                       if (p != null)
+            //                                                       {
+            //                                                           p.Cliente = c;
+            //                                                           c.Pedido.Add(p);
+            //                                                       }
+            //                                                       return c;
+            //                                                   },
+            //                                                   splitOn: "PedidoID");
+            //foreach(var d in cli)
+            //{
+            //    Console.WriteLine($"{d.Nome} - {d.Pedido.Count} pedidos");
+            //}
+
+
+            
         }
     }
 }

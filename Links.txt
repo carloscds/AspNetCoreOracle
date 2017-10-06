@@ -9,3 +9,6 @@ https://ionicframework.com/getting-started/
 
 Treinamentos:
 https://mva.microsoft.com/
+
+Blog Carlos
+http://www.carloscds.net

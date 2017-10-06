@@ -15,7 +15,10 @@ namespace ExemploEF.Models
         [Column("CLIENTEID")]
         public int ClienteID { get; set; }
         [Column("NOME")]
+        //[MaxLength(50)]
         public string Nome { get; set; }
+        [NotMapped]
+        public decimal Limite { get; set; }
         public virtual ICollection<Pedido> Pedido { get; set; }
     }
 }
