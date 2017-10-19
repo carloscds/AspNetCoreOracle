@@ -12,3 +12,10 @@ https://mva.microsoft.com/
 
 Blog Carlos
 http://www.carloscds.net
+
+DotNetCore
+https://www.microsoft.com/net/download/core
+
+VS Code
+https://code.visualstudio.com/
+
