@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Cliente>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script>
+    function ChamaJS() {
+        $.post('/home/JSTeste', function (data) {
+            $('#lblMensagem').html(data);
+        })
+    }
+</script>
+<div class="row">
+    <div>
+        <h2>Horário atual: @ViewBag.Horario</h2>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <form action="" method="post">
+                <input type="submit" class="btn btn-primary" value="Atualizar Pagina" />
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <br />
+</div>
+
+<div class="row">
+    <div>
+        <h2>Mensagem: <span id="lblMensagem"/></h2>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="button" class="btn btn-info" value="Executa Javascript" onclick="ChamaJS()" />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <br />
+    @foreach (var c in Model)
+    {
+        @Html.DisplayText("Cliente: ") <b>@c.Nome</b><br />
+    }
+</div>
