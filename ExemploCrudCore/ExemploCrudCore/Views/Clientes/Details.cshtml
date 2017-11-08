@@ -1,0 +1,23 @@
+﻿@model ExemploCrudCore.Dados.Entidades.Cliente
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>Detalhes do Cliente</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ClienteID">Editar</a> |
+    <a asp-action="Index">Voltar</a>
+</div>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dapper" Version="1.50.2" />
+    <PackageReference Include="dapper.contrib" Version="1.50.0" />
+  </ItemGroup>
+
+</Project>

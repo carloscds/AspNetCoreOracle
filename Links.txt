@@ -21,3 +21,6 @@ https://code.visualstudio.com/
 
 Instalar AspNet Core no Apache
 https://docs.microsoft.com/en-us/aspnet/core/publishing/apache-proxy
+
+Provider Oracle para .Net Core
+https://www.devart.com/dotconnect/oracle/download.html
