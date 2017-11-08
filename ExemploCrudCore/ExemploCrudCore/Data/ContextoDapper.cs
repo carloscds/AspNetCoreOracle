@@ -52,7 +52,9 @@ namespace ExemploCrudCore.Models
         public async void  ClienteUpdate(Cliente cliente)
         {
             await conexao.ExecuteAsync("update cliente set NOME = :NOME where CLIENTEID = :CLIENTEID",
-                new Dictionary<string, object>() { { "CLIENTEID", cliente.ClienteID }, { "NOME", cliente.Nome } });
+                new Dictionary<string, object>() {
+                    { "CLIENTEID", cliente.ClienteID },
+                    { "NOME", cliente.Nome } });
         }
 
         public async void ClienteDeletar(int id)
