@@ -18,6 +18,7 @@ namespace ExemploCrudCore.Models
         {
 
             //OracleConnectionStringBuilder oraCSB = new OracleConnectionStringBuilder();
+            //oraCSB.LicenseKey = "XXXXXXX";
             //oraCSB.Direct = true;
             //oraCSB.Server = "cdsoracle.southcentralus.cloudapp.azure.com";
             //oraCSB.Port = 1521;
