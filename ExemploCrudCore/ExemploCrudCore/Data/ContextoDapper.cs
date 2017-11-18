@@ -18,6 +18,7 @@ namespace ExemploCrudCore.Models
         {
 
             //OracleConnectionStringBuilder oraCSB = new OracleConnectionStringBuilder();
+            //oraCSB.LicenseKey = "XXXXXXX";
             //oraCSB.Direct = true;
             //oraCSB.Server = "cdsoracle.southcentralus.cloudapp.azure.com";
             //oraCSB.Port = 1521;
@@ -51,7 +52,9 @@ namespace ExemploCrudCore.Models
         public async void  ClienteUpdate(Cliente cliente)
         {
             await conexao.ExecuteAsync("update cliente set NOME = :NOME where CLIENTEID = :CLIENTEID",
-                new Dictionary<string, object>() { { "CLIENTEID", cliente.ClienteID }, { "NOME", cliente.Nome } });
+                new Dictionary<string, object>() {
+                    { "CLIENTEID", cliente.ClienteID },
+                    { "NOME", cliente.Nome } });
         }
 
         public async void ClienteDeletar(int id)
