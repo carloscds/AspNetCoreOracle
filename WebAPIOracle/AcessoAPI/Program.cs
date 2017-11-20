@@ -12,7 +12,7 @@ namespace AcessoAPI
     {
         static void Main(string[] args)
         {
-            string url = "http://localhost:2086/";
+            string url = "http://localhost:51224/";
 
             // autentica usuario
             Token loginToken = null;

@@ -14,7 +14,7 @@ using System.Net.Http;
 
 namespace WebAPIOracle.Controllers
 {
-    //[Authorize("Bearer")]
+    [Authorize("Bearer")]
     [Route("api/cliente")]
     public class ClienteController : Controller
     {
