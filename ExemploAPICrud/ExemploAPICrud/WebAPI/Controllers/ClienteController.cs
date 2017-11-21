@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Devart.Data.Oracle;
 using WebAPI.Entidades;
 using Dapper;
+using Microsoft.AspNetCore.Cors;
 
 namespace WebAPI.Controllers
 {

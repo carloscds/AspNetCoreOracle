@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 
 namespace WebAPI
 {
@@ -23,7 +24,17 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("enableCors",
+                    policy => policy.WithOrigins("*"));
+            });
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(new CorsAuthorizationFilterFactory("enableCors"));
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +46,12 @@ namespace WebAPI
             }
 
             app.UseMvc();
+            app.UseCors(c =>
+            {
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+            });
         }
     }
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ASP.NET Web API</title>
+<link href="Site.css" rel="stylesheet" />
+<script src="jquery.js"></script>
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+    function show() {
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: "http://cdsoracle.southcentralus.cloudapp.azure.com/exemploapi/api/cliente",
+                //url:'http://localhost:55831/api/cliente'
+            })
+                .done(function (data) {
+                    var jsonDATA = JSON.parse(JSON.stringify(data));
+                    $('#items').html('');
+                    jsonDATA.forEach(function(cli) {
+                       var str = cli.clienteID + ' :   ' + cli.nome;
+                           $('<li/>', { text: str })
+                           .appendTo($('#items'));
+                       });
+                })
+                .fail(function (xhr, textStatus, errorThrown) {
+                    alert(textStatus);
+                    console.log(xhr);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            )
+    };
+</script>
+</head>
+<body>
+    <div class="main-content">
+        <div>
+            <h1>Clientes da API</h1>
+            <ul id="clientes"/>
+        </div>
+        <div>
+            <input type="button" value="Mostrar" onclick="show();" />
+            <p id="items" />
+        </div>
+    </div>
+</body>
+</html>
