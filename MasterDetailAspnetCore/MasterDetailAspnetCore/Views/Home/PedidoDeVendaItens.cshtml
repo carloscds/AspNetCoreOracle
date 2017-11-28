@@ -1,0 +1,95 @@
+﻿@model MasterDetailAspnetCore.Entidades.PedidoDeVenda;
+
+@{
+    ViewData["Title"] = "Pedido de Venda";
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Pedido de venda - Inserir produtos</h3>
+    </div>
+    <div class="panel-body">
+        <p><b>Cliente:</b> @Model.Cliente.Nome</p>
+        <hr />
+        <form asp-controller="Home" class="form-inline" asp-action="GravarPedido">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label for="">Produto</label>
+                    <select asp-items="ViewBag.Produtos" class="form-control" id="produto"></select>
+                </div>
+                <div class="form-group">
+                    <label for="">Quantidade</label>
+                    <input type="text" class="form-control" id="quantidade" value="1">
+                </div>
+                <div class="form-group">
+                    <label for="">Valor Unitário</label>
+                    <input type="text" class="form-control" id="valor">
+                </div>
+                <button type="button" class="btn btn-default" id="btnInserir">Inserir</button>
+                <hr />
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Valor Unitário</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itens"></tbody>
+                    <tbody>
+                        <tr>
+                            <td colspan="2" class="text-right"> <b>Total:</b></td>
+                            <td><b><span id="total">R$ 0,00</span></b></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Enviar">
+                </div>
+
+            </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+
+            $("#btnInserir").on("click", function () {
+
+                var _pedidoId = $("#Id").val();
+                var _produtoId = $("#produto").val();
+                var _quantidade = $("#quantidade").val();
+                var _valor = $("#valor").val();
+
+                $.ajax({
+                    type: "POST",
+                    data: {
+                        PedidoDeVendaId: _pedidoId,
+                        ProdutoId: _produtoId,
+                        Quantidade: _quantidade,
+                        Valor: _valor
+                    }
+                })
+                .done(function (data) {
+
+                    console.log(data);
+                    var itens = $("#itens");
+                    itens.html("");
+
+                    for (var i = 0; i < data.itens.length; i++) {
+                        itens.append("<tr>" +
+                                        "<td>" + data.itens[i].produto.descricao + "</td>" +
+                                        "<td>" + data.itens[i].quantidade + " </td>" +
+                                        "<td>" + data.itens[i].valor + " </td>" +
+                                        "</tr>");
+                    }
+
+                    $("#total").html("R$ " + data.total);
+                    $("#quantidade").val("1");
+                    $("#valor").val("");
+                })
+            })
+        })
+
+    </script>
+}

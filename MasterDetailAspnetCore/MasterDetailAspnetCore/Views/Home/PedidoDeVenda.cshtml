@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Pedido de Venda";
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Pedido de venda - Selecionar cliente</h3>
+    </div>
+    <div class="panel-body">
+        <form asp-controller="Home" asp-action="PedidoDeVenda">
+            <label> Cliente</label>
+            <select asp-items="ViewBag.Clientes" class="form-control" name="clienteId"></select>
+            <br />
+            <button type="submit" class="btn btn-success">Confirmar</button>
+        </form>
+    </div>
+</div>
+
