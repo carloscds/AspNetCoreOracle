@@ -7,7 +7,7 @@ namespace MasterDetailAspnetCore.Entidades
 {
     public class Cliente
     {
-        public int Id { get; set; }
+        public int ClienteID { get; set; }
         public string Nome { get; set; }
     }
 }

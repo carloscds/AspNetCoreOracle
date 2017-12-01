@@ -11,6 +11,9 @@ using Microsoft.AspNetCore.Cors;
 
 namespace WebAPI.Controllers
 {
+    /// <summary>
+    /// Manipula dados dos clientes.
+    /// </summary>
     [Produces("application/json")]
     [Route("api/Cliente")]
     public class ClienteController : Controller
@@ -95,7 +98,11 @@ namespace WebAPI.Controllers
                 return StatusCode(400, ex.Message);
             }
         }
-
+        /// <summary>
+        /// Deleta um cliente do sistema
+        /// </summary>
+        /// <param name="ID">codigo do cliente</param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("deletar")]
         public ActionResult Deletar(int ID)

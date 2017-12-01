@@ -14,7 +14,9 @@
                 <input type="hidden" asp-for="Id" />
                 <div class="form-group">
                     <label for="">Produto</label>
-                    <select asp-items="ViewBag.Produtos" class="form-control" id="produto"></select>
+                    <select asp-items="ViewBag.Produtos" class="form-control" id="produto">
+                        <option>Selecione um produto</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="">Quantidade</label>
@@ -78,17 +80,40 @@
 
                     for (var i = 0; i < data.itens.length; i++) {
                         itens.append("<tr>" +
-                                        "<td>" + data.itens[i].produto.descricao + "</td>" +
-                                        "<td>" + data.itens[i].quantidade + " </td>" +
-                                        "<td>" + data.itens[i].valor + " </td>" +
-                                        "</tr>");
+                            "<td>" + data.itens[i].produto.product_Name + "</td>" +
+                            "<td>" + data.itens[i].quantidade + " </td>" +
+                            "<td>" + data.itens[i].valor + " </td>" +
+                        "</tr>");
                     }
 
                     $("#total").html("R$ " + data.total);
                     $("#quantidade").val("1");
                     $("#valor").val("");
+
+                    $("#produto").val(0);
+                    $("#produto").focus();
                 })
             })
+
+            $("#quantidade").on("blur", function () {
+
+                var _produtoId = $("#produto").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "BuscaPreco",
+                    data: {
+                        ProdutoId: _produtoId,
+                    }
+                })
+                    .done(function (data) {
+
+                        var valor = $("#valor");
+                        valor.val(data);
+                    })
+            })
+
+
         })
 
     </script>

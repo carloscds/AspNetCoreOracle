@@ -66,10 +66,13 @@ namespace WebAcessoAPI.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    JObject obj = new JObject();
-                    obj.Add("ClienteID", "0");
-                    obj.Add("Nome", cliente.Nome);
-                    var response = client.PostAsync(urlBase + "/incluir", new StringContent(obj.ToString(), Encoding.UTF8, "application/json")).Result;
+                    //JObject obj = new JObject();
+                    //obj.Add("ClienteID", "0");
+                    //obj.Add("Nome", cliente.Nome);
+                    var json = JsonConvert.SerializeObject(cliente);
+                    var response = client.PostAsync(urlBase + "/incluir", 
+                        new StringContent(json, 
+                        Encoding.UTF8, "application/json")).Result;
                 }
                 return RedirectToAction("Index");
             }
@@ -103,7 +106,7 @@ namespace WebAcessoAPI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Cliente cliente)
+        public async Task<ActionResult> Edit(Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +115,9 @@ namespace WebAcessoAPI.Controllers
                     JObject obj = new JObject();
                     obj.Add("ClienteID", cliente.ClienteID);
                     obj.Add("Nome", cliente.Nome);
-                    var response = client.PutAsync(urlBase + "/alterar", new StringContent(obj.ToString(), Encoding.UTF8, "application/json")).Result;
+                    var response = await client.PutAsync(urlBase + "/alterar",
+                        new StringContent(obj.ToString(), 
+                        Encoding.UTF8, "application/json"));
                 }
                 return RedirectToAction("Index");
             }

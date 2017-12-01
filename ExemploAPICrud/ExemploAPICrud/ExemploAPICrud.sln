@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{3B987C22-EFE6-4871-96DB-5A5C7056AFF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{3B987C22-EFE6-4871-96DB-5A5C7056AFF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAcessoAPI", "WebAcessoAPI\WebAcessoAPI.csproj", "{0D56EA83-2A23-48DB-9F5B-88103E820876}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAcessoAPI", "WebAcessoAPI\WebAcessoAPI.csproj", "{0D56EA83-2A23-48DB-9F5B-88103E820876}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DD632EC3-1224-41F7-91FB-1446234D1730}"
+	ProjectSection(SolutionItems) = preProject
+		HTML\index.html = HTML\index.html
+		HTML\jquery.js = HTML\jquery.js
+		HTML\jquery.min.js = HTML\jquery.min.js
+		HTML\site.css = HTML\site.css
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

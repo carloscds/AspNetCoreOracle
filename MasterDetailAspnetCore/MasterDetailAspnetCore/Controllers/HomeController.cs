@@ -19,7 +19,7 @@ namespace MasterDetailAspnetCore.Controllers
 
         public IActionResult PedidoDeVenda()
         {
-            ViewBag.Clientes = new SelectList(new ClienteRepositorio().ObterTodos(), "Id", "Nome");
+            ViewBag.Clientes = new SelectList(new ClienteRepositorio().ObterTodos(), "ClienteID", "Nome");
             return View();
         }
 
@@ -43,7 +43,7 @@ namespace MasterDetailAspnetCore.Controllers
 
             var pedido = pedidoRepo.ObterPorId(pedidoId);
 
-            ViewBag.Produtos = new SelectList(produtoRepo.ObterTodos(), "Id", "Descricao");
+            ViewBag.Produtos = new SelectList(produtoRepo.ObterTodos(), "Product_ID", "Product_Name");
 
             return View(pedido);
         }
@@ -66,11 +66,20 @@ namespace MasterDetailAspnetCore.Controllers
         }
 
         [HttpPost]
+        public IActionResult BuscaPreco(int produtoId)
+        {
+            var produtoRepo = new ProdutoRepositorio();
+
+            var produto = produtoRepo.ObterPorId(produtoId);
+            return Json(produto.Unit_Price);
+        }
+
+        [HttpPost]
         public IActionResult GravarPedido(Guid Id)
         {
             var pedidoRepo = new PedidoDeVendaRepositorio();
             var pedido = pedidoRepo.ObterPorId(Id);
-            return View("PedidoVendaItens");
+            return RedirectToAction("PedidoDeVenda");
         }
     }
 

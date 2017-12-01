@@ -3,24 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dapper;
 
 namespace MasterDetailAspnetCore.Repositorios
 {
-    public class ProdutoRepositorio
+    public class ProdutoRepositorio : RepositorioBase
     {
         public List<Produto> ObterTodos()
         {
-            return new List<Produto>
-            {
-                new Produto { Id = 1 , Descricao = "Computador"},
-                new Produto { Id = 2, Descricao = "HD"},
-                new Produto { Id = 3 , Descricao = "Teclado"},
-            };
+            return conexao.Query<Produto>("select PRODUCT_ID,PRODUCT_NAME,UNIT_PRICE from PRODUCTS").ToList();
         }
 
         public Produto ObterPorId(int produtoId)
         {
-            return ObterTodos().Where(x => x.Id == produtoId).FirstOrDefault();
+            return conexao.Query<Produto>(
+             "select PRODUCT_ID,PRODUCT_NAME,UNIT_PRICE from PRODUCTS where PRODUCT_ID = :ID",
+             new Dictionary<string, object>() { { ":ID", produtoId} })
+             .FirstOrDefault();
         }
     }
 }

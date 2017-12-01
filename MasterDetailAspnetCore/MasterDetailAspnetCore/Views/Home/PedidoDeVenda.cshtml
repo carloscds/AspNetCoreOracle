@@ -9,7 +9,9 @@
     <div class="panel-body">
         <form asp-controller="Home" asp-action="PedidoDeVenda">
             <label> Cliente</label>
-            <select asp-items="ViewBag.Clientes" class="form-control" name="clienteId"></select>
+            <select asp-items="ViewBag.Clientes" class="form-control" name="clienteId">
+                <option>Selecione um cliente</option>
+            </select>
             <br />
             <button type="submit" class="btn btn-success">Confirmar</button>
         </form>

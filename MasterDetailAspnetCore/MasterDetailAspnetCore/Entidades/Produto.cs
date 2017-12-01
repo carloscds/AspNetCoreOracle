@@ -7,7 +7,8 @@ namespace MasterDetailAspnetCore.Entidades
 {
     public class Produto
     {
-        public int Id { get; set; }
-        public string Descricao { get; set; }
+        public int Product_ID { get; set; }
+        public string Product_Name { get; set; }
+        public decimal Unit_Price { get; set; }
     }
 }
