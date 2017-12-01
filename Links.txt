@@ -24,3 +24,6 @@ https://docs.microsoft.com/en-us/aspnet/core/publishing/apache-proxy
 
 Provider Oracle para .Net Core
 https://www.devart.com/dotconnect/oracle/download.html
+
+DotNet para Linux
+https://www.microsoft.com/net/download/linux
