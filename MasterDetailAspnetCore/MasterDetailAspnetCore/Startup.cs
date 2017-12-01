@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MasterDetailAspnetCore.Repositorios;
 
 namespace MasterDetailAspnetCore
 {
@@ -22,6 +23,7 @@ namespace MasterDetailAspnetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton<Config>(new Config(Configuration["ConnectionStrings:Oracle"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
